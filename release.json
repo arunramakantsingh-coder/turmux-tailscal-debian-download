@@ -1,0 +1,12 @@
+{
+  "versionName": "0.5.0",
+  "versionCode": 9,
+  "sourceCommit": "423844df3caa9fee1711f3fffc17829bdaa041a6",
+  "sourceCommitShort": "423844d",
+  "buildTimestampUtc": "2026-10-21T16:35Z",
+  "workflowRun": "39636075973",
+  "workflowUrl": "https://github.com/arunramakantsingh-coder/turmux-tailscal-debian/actions/runs/39636075973",
+  "apkFileName": "android-development-appliance-v0.5.0.apk",
+  "sha256": "74574a48b7b029316d051154c154baaa675164ae7c3d5bd3c2ec3a05d2723c4a",
+  "changeSummary": "- Alpha7A now asks for the Termux command permission and verifies it, instead of failing with\n  \"Not allowed to start service ... without permission com.termux.permission.RUN_COMMAND\".\n- The dashboard shows a truthful state per component, a stage based progress area and a\n  readable activity log with a separate technical log.\n- The SSH configuration (Termux and Debian accounts, passwords and ports) is set in the app and\n  applied to the appliance; no password is baked into the build any more.\n- Tailscale supports two modes: the official Android app (default) and the official pinned\n  client inside Termux, which is installed only when you ask for it and is checksum verified.\n- No Tailscale auth key is embedded in the published APK any more. Paste the key in the app\n  when you need one.\n- The published page now shows the version code, the source commit, the workflow run, the build\n  time, the release notes and a link to the release metadata."
+}

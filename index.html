@@ -11,14 +11,29 @@ body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;max-width:820px;mar
 </style></head><body>
 <h1>Alpha7A</h1><div class="muted">Lightweight Android Development Appliance • Model A • v0.5.0</div>
 <div class="card ok"><h2>Build available</h2>
-<p class="meta">Code name <b>Alpha7A</b> • Version <b>v0.5.0</b> • Build <code>6148247</code> • Published 2026-10-21T13:34Z</p>
-<p>This is a private test build. Keep the APK and its embedded Tailscale auth key within your trusted devices.</p>
+<p class="meta">Code name <b>Alpha7A</b> • Version <b>v0.5.0</b> (versionCode 9) • Build <code>423844d</code> • Published 2026-10-21T16:35Z</p>
+<p class="meta">Source commit <code>423844df3caa9fee1711f3fffc17829bdaa041a6</code> • Workflow run <code>39636075973</code></p>
+<p>This is a private test build. No Tailscale auth key is embedded in it: paste the key in the app when you need one.</p>
 <a class="btn" href="./android-development-appliance-v0.5.0.apk">Download Alpha7A v0.5.0 APK</a>
-<a class="btn" href="./android-development-appliance-v0.5.0.apk.sha256">SHA-256</a></div>
+<a class="btn" href="./android-development-appliance-v0.5.0.apk.sha256">SHA-256</a>
+<a class="btn" href="./release.json">Release metadata</a></div>
+<div class="card"><h2>What changed</h2>
+<pre>- - Alpha7A now asks for the Termux command permission and verifies it, instead of failing with
+-   "Not allowed to start service ... without permission com.termux.permission.RUN_COMMAND".
+- - The dashboard shows a truthful state per component, a stage based progress area and a
+-   readable activity log with a separate technical log.
+- - The SSH configuration (Termux and Debian accounts, passwords and ports) is set in the app and
+-   applied to the appliance; no password is baked into the build any more.
+- - Tailscale supports two modes: the official Android app (default) and the official pinned
+-   client inside Termux, which is installed only when you ask for it and is checksum verified.
+- - No Tailscale auth key is embedded in the published APK any more. Paste the key in the app
+-   when you need one.
+- - The published page now shows the version code, the source commit, the workflow run, the build
+-   time, the release notes and a link to the release metadata.</pre></div>
 <div class="card"><h2>First-time setup</h2><ol>
-<li>Install the official Termux app. Alpha7A downloads it for you: tap “1. Install official Termux” and approve the install in the Android package installer. F-Droid is an alternative source; do not mix Termux sources.</li>
+<li>Install the official Termux app. Alpha7A downloads it for you: tap “Install official Termux” and approve the install in the Android package installer. F-Droid is an alternative source; do not mix Termux sources.</li>
 <li>Install and open Alpha7A.</li><li>Allow Termux external commands and grant Alpha7A the Termux RUN_COMMAND permission.</li>
-<li>Tap START ALPHA7A PROVISIONING. The build supplies the configured Tailscale auth key automatically.</li></ol></div>
-<div class="card"><h2>Provisioned services</h2><p>Termux tools, Tailscale userspace, unique hostname, SSH on 8022, Debian via proot-distro, Debian SSH on 2222, SOCKS5 on 1055, local operations page on 8080, Git/Git LFS/Python/build tooling and diagnostics.</p></div>
-<div class="card warn"><b>Android restriction:</b> Android still requires user confirmation to install an APK and Termux security approvals before a third-party app can run commands in Termux.</div>
+<li>Tap START PROVISIONING. Alpha7A runs the whole setup inside Termux and shows the progress and the result.</li></ol></div>
+<div class="card"><h2>Provisioned services</h2><p>Termux tools, Tailscale (official app or the CLI in Termux), unique hostname, Termux SSH, Debian via proot-distro, Debian SSH, SOCKS5, local operations page, Git/Git LFS/Python/build tooling and diagnostics. The ports and accounts are set in the app.</p></div>
+<div class="card warn"><b>Android restriction:</b> Android still requires user confirmation to install an APK, and Termux requires the user to allow external apps to run commands.</div>
 </body></html>
