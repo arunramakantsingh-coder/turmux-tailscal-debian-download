@@ -1,39 +1,29 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#101827">
-<title>Android Development Appliance</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alpha7A — Android Development Appliance</title>
 <style>
-:root{color-scheme:dark;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#101827;color:#e8eef8}
-body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;box-sizing:border-box}
-main{width:min(720px,100%);background:#172235;border:1px solid #31415a;border-radius:18px;padding:clamp(24px,5vw,44px);box-sizing:border-box}
-.eyebrow{color:#9db5d7;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;font-weight:700}
-h1{font-size:clamp(2rem,5vw,3rem);line-height:1.08;margin:.6rem 0 1rem}
-p{line-height:1.65;color:#c8d4e6}
-.status{display:flex;gap:12px;align-items:flex-start;background:#2b2630;border:1px solid #5a4651;padding:16px;border-radius:12px;margin:24px 0}
-.dot{width:10px;height:10px;flex:0 0 10px;border-radius:50%;background:#f2b66d;margin-top:7px}
-.status strong{display:block;margin-bottom:4px}
-a{color:#a9ceff}
-small{color:#93a6c1}
-ul{padding-left:1.2rem;line-height:1.8;color:#c8d4e6}
-</style>
-</head>
-<body>
-<main>
-<div class="eyebrow">Alpha7A · Android provisioning</div>
-<h1>Android Development Appliance</h1>
-<p>This page will host the Alpha7A companion APK for provisioning an Android phone with Termux, Tailscale, and a Debian environment.</p>
-<div class="status"><span class="dot" aria-hidden="true"></span><div><strong>Download temporarily unavailable</strong><p style="margin:0">The APK builds successfully in the private repository, but automatic publishing is currently blocked by permissions for the distribution repository. No download is being offered until publication succeeds.</p></div></div>
-<h2>What happens next?</h2>
-<ul>
-<li>Restore write access from the private build workflow to this public repository.</li>
-<li>Publish the APK and verify the download link.</li>
-<li>Test the provisioning flow on a real Android device before calling the build ready.</li>
-</ul>
-<p><a href="https://github.com/arunramakantsingh-coder/turmux-tailscal-debian/actions">Build status</a> · <a href="https://github.com/arunramakantsingh-coder/turmux-tailscal-debian-download">Public distribution repository</a></p>
-<small>Alpha7A is under development. Do not use an unverified build for a device you rely on.</small>
-</main>
-</body>
-</html>
+body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;max-width:820px;margin:auto;padding:22px;background:#0b1020;color:#eef2ff;line-height:1.5}
+.card{background:#151c33;border:1px solid #303a60;border-radius:16px;padding:20px;margin:16px 0}
+.muted{color:#aab4d0}.btn{display:inline-block;border-radius:11px;padding:13px 18px;margin:6px 4px 6px 0;background:#4f7cff;color:white;text-decoration:none;font-weight:700}
+.ok{border-left:4px solid #45d483}.warn{border-left:4px solid #ffbd4a} code,pre{background:#080d18;border-radius:10px;padding:10px}
+</style></head><body>
+<h1>Alpha7A</h1>
+<div class="muted">Lightweight Android Development Appliance • Model A • v0.5.0-alpha.7a</div>
+<div class="card ok"><h2>Test build is ready</h2>
+<p>Alpha7A uses the maintained Termux application as the runtime and a small companion APK as the provisioning controller.</p>
+<a class="btn" href="./android-development-appliance-v0.5.0-alpha.7a.apk">Download Alpha7A APK</a>
+<a class="btn" href="./android-development-appliance-v0.5.0-alpha.7a.apk.sha256">SHA-256</a></div>
+<div class="card"><h2>Required first-time setup</h2><ol>
+<li>Install the official Termux build from the same source you intend to keep using (GitHub or F-Droid). Do not mix Termux sources.</li>
+<li>Install Alpha7A.</li>
+<li>Open Alpha7A and follow its two security approvals: enable <code>allow-external-apps=true</code> in Termux and grant Alpha7A the Termux <code>RUN_COMMAND</code> permission.</li>
+<li>Tap <b>START ALPHA7A PROVISIONING</b> once.</li>
+</ol></div>
+<div class="card"><h2>What it provisions</h2>
+<p>Termux baseline tools, Tailscale userspace, unique hostname, SSH on 8022, Debian via proot-distro, Debian SSH on 2222, proxy Level 1/2, SOCKS5 on 1055, local details/operations page on port 8080, Git/Git LFS/Python/build tooling and diagnostics.</p></div>
+<div class="card warn"><b>Important:</b> Android and Termux deliberately require these security approvals for a third-party app to execute commands in Termux. This is why Alpha7A cannot honestly claim zero-touch provisioning on a normal stock Android device. The actual provisioning after approval is automatic.</div>
+<div class="card"><h2>Alpha7A vs Alpha7B</h2><p><b>Alpha7A</b> = lightweight companion + official Termux. <b>Alpha7B</b> = self-contained custom Termux build and remains preserved as the alternate track.</p></div>
+<div class="card"><h2>Security</h2><p>The Tailscale auth key is entered on the device during first-run provisioning. It is not embedded in the APK or published to the repository. The key is stored locally with restricted permissions and removed after successful authentication.</p></div>
+</body></html>
